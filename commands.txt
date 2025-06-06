@@ -1,0 +1,24 @@
+# MySQL
+
+docker run \
+    --detach \
+    --name gs_mysql \
+    --network gs_network \
+    --volume gs_volume:/var/lib/mysql \
+    --env MYSQL_USER=Tavin \
+    --env MYSQL_PASSWORD=TavinLindo \
+    --env MYSQL_DATABASE=GS_DOTNET \
+    --env MYSQL_ROOT_PASSWORD=root123 \
+    mysql:latest
+
+
+# .NET API
+
+docker run \
+    --detach \
+    --publish 8080:8080 \
+    --name gs_api \
+    --network gs_network \
+    gs_dotnet
+
+
