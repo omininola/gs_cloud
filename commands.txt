@@ -2,6 +2,7 @@
 
 docker run \
     --detach \
+    --publish 3306:3306 \
     --name gs_mysql \
     --network gs_network \
     --volume gs_volume:/var/lib/mysql \
@@ -18,7 +19,21 @@ docker run \
     --detach \
     --publish 8080:8080 \
     --name gs_api \
+    --env DB_PASSWORD=TavinLindo \
     --network gs_network \
     gs_dotnet
 
 
+# Logs
+
+docker logs -f gs_api && docker logs -f gs_mysql
+
+
+# Enter MySQL
+
+mariadb -h 127.0.0.1 -P 3306 -u Tavin -p
+TavinLindo
+
+USE GS_DOTNET;
+
+SELECT * FROM Usuarios;
