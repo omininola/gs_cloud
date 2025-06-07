@@ -22,18 +22,3 @@ docker run \
     --env DB_PASSWORD=TavinLindo \
     --network gs_network \
     gs_dotnet
-
-
-# Logs
-
-docker logs -f gs_api && docker logs -f gs_mysql
-
-
-# Enter MySQL
-
-mariadb -h 127.0.0.1 -P 3306 -u Tavin -p
-TavinLindo
-
-USE GS_DOTNET;
-
-SELECT * FROM Usuarios;
